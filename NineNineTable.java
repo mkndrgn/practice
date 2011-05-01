@@ -1,9 +1,8 @@
-import java.text.DecimalFormat;
-
 public class NineNineTable {
 
+    private static final String LINE = "--+--+--+--+--+--+--+--+--+--+";
+
     public static void main(String[] args){
-	DecimalFormat format = new DecimalFormat("00");
 	for(int i = 0; i <= 9; i++){
 	    for(int j = 0; j <= 9; j++){
 
@@ -12,10 +11,10 @@ public class NineNineTable {
 		    break;
 		}
 		else if(j == 0){
-		    printColHeader(format, i);
+		    printColHeader(i);
 		}
 		else{
-		    System.out.print(format.format(i*j)+"+");
+		    System.out.print(format(i*j)+"+");
 		}
 
 		if(j == 9){
@@ -23,15 +22,28 @@ public class NineNineTable {
 		}
 	    }
 	}
+	printRowFooter();
     }
 
     private static void printRowHeader(){
-	System.out.println("  + 1+ 2+ 3+ 4+ 5+ 6+ 7+ 8+ 9");
-	System.out.println("--+--+--+--+--+--+--+--+--+--");
+	System.out.println("  + 1+ 2+ 3+ 4+ 5+ 6+ 7+ 8+ 9 ");
+	System.out.println(LINE);
     }
 
-    private static void printColHeader(DecimalFormat format, int i){
-	System.out.print(format.format(i)+"+");
+    private static void printRowFooter(){
+	System.out.println(LINE);
+    }
+
+    private static void printColHeader(int i){
+	System.out.print(format(i)+"+");
+    }
+
+    public static String format(int i){
+	String number = String.valueOf(i);
+	if(String.valueOf(i).length() == 1){
+	    number = " " + number;
+	}
+	return number;
     }
 
 }
