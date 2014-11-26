@@ -12,7 +12,7 @@ public class MyEcho{
                          System.out.println("empty, retry.");
                          continue;
                     }
-                    System.out.println(str);
+                    System.out.println(String.format("echo>%s",str));
                }while(!str.equals("EXIT"));
 	 }catch(IOException e){
 	     System.exit(100);
