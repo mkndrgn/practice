@@ -1,1 +1,1 @@
-Hello, new READ ME!
+Hello!
